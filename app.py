@@ -2,6 +2,12 @@ import streamlit as st
 import pickle
 import pandas as pd
 
+st.set_page_config(
+    page_title="IPL Win Predictor",
+    page_icon="🏏",
+    layout="wide"
+)
+
 teams = ['Sunrisers Hyderabad',
  'Mumbai Indians',
  'Royal Challengers Bangalore',
@@ -20,11 +26,6 @@ cities = ['Hyderabad', 'Bangalore', 'Mumbai', 'Indore', 'Kolkata', 'Delhi',
 
 pipe = pickle.load(open('pipe.pkl','rb'))
 st.title('IPL Win Predictor')
-st.set_page_config(
-    page_title="IPL Win Predictor",
-    page_icon="🏏",
-    layout="wide"
-)
 
 col1, col2 = st.columns(2)
 
@@ -35,20 +36,35 @@ with col2:
 
 selected_city = st.selectbox('Select host city',sorted(cities))
 
-target = st.number_input('Target')
+target = st.number_input(
+    'Target',
+    min_value=0,
+    step=1
+)
 
 col3,col4,col5 = st.columns(3)
 
 with col3:
-    score = st.number_input('Score')
+    score = st.number_input(
+        'Score',
+        min_value=0,
+        step=1
+    )
 with col4:
-    overs = st.number_input('Overs completed')
+    overs = st.number_input(
+        'Overs completed',
+        min_value=0.0,
+        max_value=20.0,
+        step=0.1
+    )
 with col5:
-    wickets = st.number_input('Wickets out')
-    target = int(target)
-    score = int(score)
-    overs = float(overs)
-    wickets = int(wickets)
+    wickets = st.number_input(
+        'Wickets out',
+        min_value=0,
+        max_value=10,
+        step=1
+    )
+
 
 if st.button('Predict Probability'):
     runs_left = target - score
