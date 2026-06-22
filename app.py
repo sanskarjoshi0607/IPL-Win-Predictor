@@ -10,8 +10,22 @@ st.set_page_config(
 
 st.markdown("""
 <style>
+/* Remove top padding */
 .block-container {
     padding-top: 0.5rem;
+}
+
+/* Banner styling */
+.banner-container {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.banner-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    display: block;
 }
 </style>
 """, unsafe_allow_html=True)
