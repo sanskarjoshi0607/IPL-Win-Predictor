@@ -8,7 +8,15 @@ st.set_page_config(
     layout="wide"
 )
 
+st.markdown("""
+<style>
+.block-container {
+    padding-top: 0.5rem;
+}
+</style>
+""", unsafe_allow_html=True)
 
+st.image("banner.png", use_container_width=True)
 
 teams = ['Sunrisers Hyderabad',
  'Mumbai Indians',
