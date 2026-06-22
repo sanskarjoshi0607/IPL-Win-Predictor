@@ -9,6 +9,7 @@ st.set_page_config(
 )
 
 
+
 teams = ['Sunrisers Hyderabad',
  'Mumbai Indians',
  'Royal Challengers Bangalore',
@@ -79,6 +80,19 @@ with col5:
 
 
 if st.button('Predict Probability'):
+    if wickets >= 10:
+        st.error(f"All wickets are down. {bowling_team} wins!")
+        st.stop()
+
+    if score >= target:
+        st.success(f"{batting_team} won the match! 🎉")
+        st.stop()
+
+    if overs >= 20:
+        st.error("Innings completed!")
+        st.stop()
+
+
     runs_left = target - score
     balls_bowled = overs * 6 + balls
     balls_left = 120 - balls_bowled
