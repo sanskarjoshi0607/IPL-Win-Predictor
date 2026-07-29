@@ -31,6 +31,8 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 st.image("banner.png", use_container_width=True)
+# ---------------- Title ----------------
+st.title("IPL Win Predictor")
 
 teams = ['Sunrisers Hyderabad',
  'Mumbai Indians',
@@ -49,7 +51,6 @@ cities = ['Hyderabad', 'Bangalore', 'Mumbai', 'Indore', 'Kolkata', 'Delhi',
        'Sharjah', 'Mohali', 'Bengaluru']
 
 pipe = pickle.load(open('pipe.pkl','rb'))
-st.title('🏏 IPL Win Predictor')
 
 col1, col2 = st.columns(2)
 
